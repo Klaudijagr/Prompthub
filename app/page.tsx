@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Search, Star, TrendingUp, Zap } from "lucide-react"
+import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
 export default function HomePage() {
   const featuredPrompts = [
@@ -59,8 +60,17 @@ export default function HomePage() {
             </a>
           </nav>
           <div className="flex items-center space-x-4">
-            <Button variant="ghost">Sign In</Button>
-            <Button>Sign Up</Button>
+            <SignedOut>
+              <SignInButton>
+                <Button variant="ghost">Sign In</Button>
+              </SignInButton>
+              <SignUpButton>
+                <Button>Sign Up</Button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
         </div>
       </header>
